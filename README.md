@@ -1,2 +1,0 @@
-# ninjaprojectReact
-start

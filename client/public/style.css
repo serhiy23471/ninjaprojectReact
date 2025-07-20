@@ -1,0 +1,688 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
+body {
+    font-family: "Nunito", sans-serif;
+    display: block !important;
+    place-items: normal !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Nunito", sans-serif;
+    color: inherit;
+    background-color: transparent;
+    overflow-x: visible;
+}
+
+.ninja-text,
+h2.ninja-text,
+#home h2,
+#rules h2 {
+    font-family: "Press Start 2P", cursive;
+    letter-spacing: 1px;
+    /* background-color: #0a0a0a; */
+    color: #fff;
+    overflow-x: hidden;
+    line-height: 1.3;
+}
+
+#vip h2 {
+    font-family: "Press Start 2P", cursive;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #ffd700, #ff9900, #ff6600);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(255, 153, 0, 0.5);
+    position: relative;
+    display: block;
+    text-align: center;
+    padding: 0 40px;
+    animation: textGlow 2s infinite alternate, textFloat 3s ease-in-out infinite;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 70px;
+}
+
+@keyframes textGlow {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 153, 0, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(255, 153, 0, 0.8), 0 0 30px rgba(255, 153, 0, 0.6);
+    }
+}
+
+@keyframes textFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+#vip h2::before,
+#vip h2::after {
+    content: "✧";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ff9900;
+    font-size: 1.5em;
+    animation: arrowPulse 1.5s infinite alternate;
+}
+
+#vip h2::before {
+    left: 10px;
+    top: 15px;
+}
+
+#vip h2::after {
+    right: 10px;
+    top: 15px;
+}
+
+
+@keyframes arrowPulse {
+    0% {
+        transform: translateY(-50%) scale(1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-50%) scale(1.3);
+        opacity: 1;
+        text-shadow: 0 0 15px rgba(255, 153, 0, 0.8);
+    }
+}
+
+.ninja-text {
+    background: linear-gradient(45deg, #ff0000, #990000);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+    font-family: "Press Start 2P", cursive;
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #ff0000;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.text-red-red {
+    color: #ff0000;
+}
+
+.text-white-white {
+    color: #fff;
+}
+
+.flex-pravelo {
+    display: flex;
+    flex-direction: column;
+}
+
+.mr-top {
+    margin-top: 20px;
+}
+
+
+.rules-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.rules-container.active {
+    overflow-y: auto;
+}
+
+/* Стилі скроллбару */
+.rules-container.active::-webkit-scrollbar {
+    width: 8px;
+}
+.rules-container.active::-webkit-scrollbar-thumb {
+    background: #ff0000;
+    border-radius: 4px;
+}
+.rules-container.active::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+/* Анімація іконки */
+.fa-chevron-down {
+    transition: transform 0.3s ease;
+}
+.rotate-180 {
+    transform: rotate(180deg);
+}
+
+.dis-none {
+    display: none;
+}
+
+/* Стилі для скролу на мобільних пристроях */
+
+.mobile-scroll {
+    max-height: 60vh !important;
+    /* або інше значення, яке вам підходить */
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    /* для плавного скролу на iOS */
+}
+
+
+/* Додаткові стилі для кращого відображення */
+
+.mobile-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.mobile-scroll::-webkit-scrollbar-thumb {
+    background-color: #cb2e2e;
+    border-radius: 5px;
+}
+
+.vip-card {
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    cursor: pointer;
+    /* Додаємо курсор-руку */
+}
+
+.vip-card:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: 0 20px 30px rgba(255, 0, 0, 0.3);
+}
+
+/* .vip-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient( circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+} */
+
+.vip-card:hover::before {
+    opacity: 1;
+    animation: shine 1.5s ease-out infinite;
+}
+
+.comment__respond {
+    margin-top: 20px;
+    background-color: #374151;
+}
+
+.delete-comment-btn {
+    margin-left: 400px;
+    color: rgb(239 68 68 / var(--tw-text-opacity, 1))
+}
+
+@keyframes shine {
+    0% {
+        transform: rotate(45deg) translate(-50%, -50%);
+    }
+    100% {
+        transform: rotate(45deg) translate(50%, 50%);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.pulse {
+    animation: pulse 1.5s infinite;
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 8px rgba(74, 222, 128, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+    }
+}
+
+@keyframes ninjaJump {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.ninja-jump {
+    animation: ninjaJump 2s ease-in-out infinite;
+}
+
+@keyframes smoke {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(0.5);
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50px) scale(1.5);
+    }
+}
+
+.smoke-effect::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient( circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: smoke 2s ease-out infinite;
+    filter: blur(5px);
+}
+
+.steam-btn {
+    background: linear-gradient(45deg, #171a21, #1b2838);
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.steam-btn:hover {
+    background: linear-gradient(45deg, #1b2838, #171a21);
+    transform: translateY(-2px);
+}
+
+.flex__mobile__steam {
+    display: flex;
+    justify-content: center !important;
+}
+
+/* Стилі для кастомного скролбару */
+        .vip-scroll-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        .vip-scroll-container::-webkit-scrollbar-track {
+            background: #fef9c3;
+            border-radius: 3px;
+        }
+        .vip-scroll-container::-webkit-scrollbar-thumb {
+            background: #f59e0b;
+            border-radius: 3px;
+        }
+        
+        /* Для десктопів - скролл при наведенні */
+        @media (hover: hover) {
+            .vip-scroll-container {
+                overflow: hidden;
+            }
+            .vip-card:hover .vip-scroll-container {
+                overflow-y: auto;
+            }
+        }
+        
+        /* Для мобільних - постійний скролл */
+        @media (hover: none) {
+            .vip-scroll-container {
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .vip-scroll-container::-webkit-scrollbar {
+                width: 8px;
+                height: 8px;
+            }
+        }
+        
+
+/* Виправлення для пагінації коментарів */
+
+#pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.mobile__button button {
+    background-color: transparent !important;
+    padding: 0 !important;
+}
+
+button:hover {
+    border-color: transparent !important; 
+}
+
+button:focus,
+button:focus-visible {
+    outline: none !important;
+}
+
+.scrollbar {
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #8f53ff transparent;
+}
+
+/* Chrome / Edge / Safari */
+.scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #8f53ff;
+  border-radius: 10px;
+}
+
+/* ❌ Приховуємо стрілки */
+.scrollbar::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* ❌ Приховуємо кут */
+.scrollbar::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+
+.rules-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.rules-container::-webkit-scrollbar-thumb {
+  background-color: rgb(255 0 0);
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.rules-container::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(255 0 0);
+}
+
+.rules-container::-webkit-scrollbar-track {
+  background-color: #1f2937;
+}
+
+
+
+#page-numbers button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#page-numbers button.active {
+    background-color: #ef4444;
+    color: white;
+}
+
+
+/* Mobile menu styles */
+
+.mobile-menu {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 40;
+    padding: 1rem;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.mobile-menu.active {
+    transform: translateY(0);
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 1rem;
+    color: white;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu a:last-child {
+    border-bottom: none;
+}
+
+
+/* Адаптивні стилі */
+
+@media (max-width: 668px) {
+    .mobile-scroll {
+        max-height: 60vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-section {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+    .ninja-text,
+    h2.ninja-text,
+    #home h2,
+    #rules h2 {
+        font-size: 2rem;
+        line-height: 2.5rem;
+        padding: 0 1rem;
+    }
+    #vip h2 {
+        font-size: 1.3rem;
+        padding: 0 2rem;
+    }
+    #vip h2::before,
+    #vip h2::after {
+        font-size: 1.5rem;
+    }
+    .vip-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .server-card {
+        padding: 1rem;
+    }
+    .server-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .server-divider {
+        display: none;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .logo-center span {
+        font-size: 1rem;
+    }
+    .server-ip {
+        font-size: 0.7rem;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+    .ninja-text,
+    h2.ninja-text,
+    #home h2,
+    #rules h2 {
+        font-size: 2.5rem;
+        line-height: 3rem;
+    }
+    .vip-cards {
+        grid-template-columns: 1fr 1fr !important;
+    }
+    .vip-card:nth-child(3) {
+        grid-column: span 2;
+        max-width: 80%;
+        margin: 0 auto;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 1536px) {
+    .bg-red-500 {
+        margin-right: 50px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* Специфічні стилі для контактної інформації */
+    .overflow-hidden {
+        overflow: visible;
+    }
+    .break-all {
+        word-break: break-all;
+        overflow-wrap: break-word;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    .bg-red-500 {
+        margin: 0 -21px -60px 0;
+    }
+    p,
+    li {
+        font-size: 0.95rem;
+    }
+    .rules-container {
+        max-height: none;
+        overflow-y: visible;
+    }
+    .rules-toggle i {
+        transition: transform 0.3s ease;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-menu-button,
+    .mobile-menu {
+        display: none !important;
+    }
+}
+
+@media (max-width: 540px) {
+    .delete-comment-btn {
+        margin-left: 220px;
+    }
+}
+
+@media (max-width: 435px) {
+    #vop h2 {
+        font-size: 0.8rem;
+    }
+
+    .text-xl {
+        font-size: 1rem !important;
+    }
+
+    .flex {
+        /* display: flex; */
+        flex-wrap: wrap;
+    }
+
+    .text-white {
+        /* width: 100%; */
+    }
+
+    .delete-comment-btn {
+        margin-left: 86px;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 375px) {
+    .delete-comment-btn {
+        margin-left: 60px;
+    }
+}
+
+@media (max-width: 344px) {
+    .delete-comment-btn {
+        margin-left: 40px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+@media (hover: none) {
+    .vip-card:hover {
+        transform: none;
+    }
+}
