@@ -7,7 +7,7 @@
 Бекенд:
 		cd server
 		node index.js
-відкрити в браузері http://localhost:5000/api/user
+відкрити в браузері https://ninjaproject.com.ua/api/user
 
 
 npm install express cors body-parser express-session connect-pg-simple passport passport-steam pg dotenv

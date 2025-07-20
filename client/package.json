@@ -28,5 +28,5 @@
     "tailwindcss": "^4.1.11",
     "vite": "^7.0.4"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "https://ninjaproject.com.ua"
 }

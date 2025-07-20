@@ -9,7 +9,7 @@ export default function LoginPrompt() {
         Авторизируйтесь, чтобы иметь возможность писать комментарии и читать все отзывы
       </p>
       <a
-        href="http://localhost:5000/auth/steam" // URL на твій бекенд Steam login
+        href="https://ninjaproject.com.ua/auth/steam" // URL на твій бекенд Steam login
         className="steam-btn text-white font-bold py-3 px-6 rounded-full inline-flex items-center mx-auto"
       >
         <i className="fab fa-steam mr-2"></i> Войти через Steam
