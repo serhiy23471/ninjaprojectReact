@@ -14,7 +14,7 @@ const PORT = 5000;
 const STEAM_API_KEY = '704ED29BAE088CD245C606C2DA25074A';
 
 app.use(cors({
-  origin: 'http://localhost:5173', // Заміни на продакшен: 'https://ninjaproject.com.ua'
+  origin: 'https://ninjaproject.com.ua', // продакшен домен
   credentials: true
 }));
 
@@ -35,8 +35,8 @@ passport.deserializeUser((obj, done) => done(null, obj));
 
 // Налаштування SteamStrategy
 passport.use(new SteamStrategy({
-  returnURL: 'http://localhost:5000/auth/steam/return',
-  realm: 'http://localhost:5000/',
+  returnURL: 'https://ninjaproject.com.ua:5000/auth/steam/return',
+  realm: 'https://ninjaproject.com.ua:5000/',
   apiKey: STEAM_API_KEY
 }, (identifier, profile, done) => {
   process.nextTick(() => {
@@ -55,17 +55,17 @@ app.get('/auth/steam/return',
     req.session.steamid = req.user.id;
     req.session.username = req.user.displayName;
     req.session.avatar = req.user.photos[0]?.value || null;
-    res.redirect('http://localhost:5173'); // Заміни на свій сайт
+    res.redirect('https://ninjaproject.com.ua'); // редірект на твій сайт після логіну
   }
 );
 
-// ВИПРАВЛЕНИЙ LOGOUT - Тепер POST замість GET
+// LOGOUT - POST метод
 app.post('/logout', (req, res, next) => {
   req.logout(err => {
     if (err) return next(err);
     req.session.destroy(() => {
-      res.clearCookie('connect.sid'); // очищення cookie сесії
-      res.json({ success: true }); // повертаємо JSON без редіректу
+      res.clearCookie('connect.sid');
+      res.json({ success: true });
     });
   });
 });
@@ -90,5 +90,5 @@ app.get('/api/user', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on http://0.0.0.0:${PORT}`);
 });
