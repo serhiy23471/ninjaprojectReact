@@ -8,7 +8,7 @@
         "database": "s5761_NinjaProject",
         "port": 3307
     },
-    "HOST": "localhost",
+    "HOST": "185.5.254.23",
     "PROTOCOL": "http",
     "PORT": 27275,
     "INTERNAL_HOST": "0.0.0.0",
