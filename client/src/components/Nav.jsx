@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import NavDesktop from './NavDesktop';
-import NavMobile from './NavMobile';
 
 export default function Nav() {
   const [user, setUser] = useState(null);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     fetch('https://ninjaproject.com.ua/api/user', { credentials: 'include' })
@@ -15,17 +12,18 @@ export default function Nav() {
         } else {
           setUser(null);
         }
-      });
+      })
+      .catch(() => setUser(null));
   }, []);
 
   const handleLogout = () => {
-    fetch('https://ninjaproject.com.ua/logout', { credentials: 'include' }).then(() => {
+    fetch('https://ninjaproject.com.ua/logout', { 
+      method: 'POST',
+      credentials: 'include'
+    }).then(() => {
       setUser(null);
-      setMobileMenuOpen(false);
     });
   };
-
-  const toggleMobileMenu = () => setMobileMenuOpen(open => !open);
 
   return (
     <header className="bg-black bg-opacity-90 border-b border-red-900 sticky top-0 z-50">
@@ -37,8 +35,33 @@ export default function Nav() {
           </a>
         </div>
 
-        <NavMobile user={user} onLogout={handleLogout} isOpen={mobileMenuOpen} onToggle={toggleMobileMenu} />
-        <NavDesktop user={user} onLogout={handleLogout} />
+        <div>
+          {!user && (
+            <a
+              href="https://ninjaproject.com.ua/auth/steam"
+              className="text-white px-4 py-2 border border-white rounded hover:bg-white hover:text-black transition"
+            >
+              Увійти через Steam
+            </a>
+          )}
+
+          {user && (
+            <div className="flex items-center space-x-4">
+              <img
+                src={user.avatar || 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/00/0000000000000000000000000000000000000000_full.jpg'}
+                alt={user.username}
+                className="w-8 h-8 rounded-full"
+              />
+              <span className="text-white">{user.username}</span>
+              <button
+                onClick={handleLogout}
+                className="text-white px-4 py-2 border border-white rounded hover:bg-white hover:text-black transition"
+              >
+                Вийти
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );
