@@ -18,7 +18,7 @@ export default function NavDesktop({ user }) {
   return (
     <nav className="hidden md:flex items-center space-x-8">
       <a href="#home" className="nav-link text-white hover:text-red-500">Главная</a>
-      <a href="/weaponpaints/index.html" target="_blank" rel="noopener noreferrer">
+      <a href="/skins/index.html" target="_blank" rel="noopener noreferrer">
         <button className="btn">Скини</button>
       </a>
 

@@ -51,6 +51,9 @@ export default function NavMobile({ user, onLogout, isOpen, onToggle }) {
         className="fixed top-16 left-0 w-full bg-black bg-opacity-95 p-4 z-40 pointer-events-auto"
       >
         <a href="#home" className="block text-white py-2 hover:text-red-500 text-center">Главная</a>
+        <a href="/skins/index.html" target="_blank" rel="noopener noreferrer">
+          <button className="btn">Скини</button>
+        </a>
         <a href="/application/application.php" className="block text-white py-2 hover:text-red-500 text-center">Подача заявок</a>
         <a href="#vip" className="block text-white py-2 hover:text-red-500 text-center">VIP</a>
         <a href="#rules" className="block text-white py-2 hover:text-red-500 text-center">Правила</a>
