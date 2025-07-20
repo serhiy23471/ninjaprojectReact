@@ -1,0 +1,55 @@
+{
+    "navLogin": "Login",
+    "navLogout": "Logout",
+    "navDelete": "Delete account",
+    "connect": "Connect to server",
+    "profile": "Profile",
+    "sideMenu": {
+        "knives": "Knives",
+        "gloves": "Gloves",
+        "pistols": "Pistols",
+        "rifles": "Rifles",
+        "sniperRifles": "Sniper rifles",
+        "SMGs": "SMGs",
+        "heavy": "Heavy",
+        "utility": "Utility",
+        "ctAgents": "CT Agents",
+        "tAgents": "T Agents",
+        "musicKits": "Music kits"
+    },
+    "modal": {
+        "title": "Float and pattern",
+        "float": "Float",
+
+        "patternButtons": [
+            {
+                "shortName": "FN",
+                "longName": "Factory New"
+            },
+            {
+                "shortName": "MW",
+                "longName": "Minimal Wear"
+            },
+            {
+                "shortName": "FT",
+                "longName": "Field-Tested"
+            },
+            {
+                "shortName": "WW",
+                "longName": "Well-Worn"
+            },
+            {
+                "shortName": "BS",
+                "longName": "Battle-Scarred"
+            }
+
+        ],
+        "pattern": "Pattern"
+
+    },
+    "selectCategory": "Select category",
+    "needLogin": "You need to login",
+    "viaSteam": "via Steam",
+    "change": "Change",
+    "changeSkin": "Change skin"
+}

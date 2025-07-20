@@ -1,0 +1,55 @@
+{
+    "navLogin": "Войти",
+    "navLogout": "Выйти",
+    "navDelete": "Удалить аккаунт",
+    "connect": "Подключиться к серверу",
+    "profile": "Профиль",
+    "sideMenu": {
+        "knives": "Ножи",
+        "gloves": "Перчатки",
+        "pistols": "Пистолеты",
+        "rifles": "Винтовки",
+        "sniperRifles": "Снайперские винтовки",
+        "SMGs": "Пистолеты-пулемёты",
+        "heavy": "Тяжёлое",
+        "utility": "Полезное",
+        "ctAgents": "Агенты T",
+        "tAgents": "Агенты CT",
+        "musicKits": "Музикальний набор"
+    },
+    "modal": {
+        "title": "Float and pattern",
+        "float": "Float",
+
+        "patternButtons": [
+            {
+                "shortName": "FN",
+                "longName": "Factory New"
+            },
+            {
+                "shortName": "MW",
+                "longName": "Minimal Wear"
+            },
+            {
+                "shortName": "FT",
+                "longName": "Field-Tested"
+            },
+            {
+                "shortName": "WW",
+                "longName": "Well-Worn"
+            },
+            {
+                "shortName": "BS",
+                "longName": "Battle-Scarred"
+            }
+
+        ],
+        "pattern": "Pattern"
+
+    },
+    "selectCategory": "Выберите категорию",
+    "needLogin": "Нужно войти",
+    "viaSteam": "через Steam",
+    "change": "Сменить",
+    "changeSkin": "Сменить скин"
+}

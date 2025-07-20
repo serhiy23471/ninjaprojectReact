@@ -18,6 +18,10 @@ export default function NavDesktop({ user }) {
   return (
     <nav className="hidden md:flex items-center space-x-8">
       <a href="#home" className="nav-link text-white hover:text-red-500">Главная</a>
+      <a href="/weaponpaints/index.html" target="_blank" rel="noopener noreferrer">
+        <button className="btn">Скини</button>
+      </a>
+
       <a href="./application/application.php" className="nav-link text-white hover:text-red-500">Подача заявок</a>
       <a href="#vip" className="nav-link text-white hover:text-red-500">VIP</a>
       <a href="#rules" className="nav-link text-white hover:text-red-500">Правила</a>
