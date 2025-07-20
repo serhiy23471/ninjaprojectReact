@@ -1,17 +1,18 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/skins/"> <!-- базовий шлях для всіх відносних URL -->
+
+    <!-- Шляхи залишені відносними, будуть коректно шукатися від /skins/ -->
     <link rel="stylesheet" href="css/styles/default.css">
-    <title>SkinChanger</title>
+    <title>Ninja Project</title>
 
     <link rel="stylesheet" href="css/fontawesome/all.min.css">
 
     <link rel="stylesheet" href="css/bootstrap/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
-    
 </head>
 <body class="bg-color">
 
@@ -24,6 +25,7 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body bg-color d-flex flex-column text-light">
+                    <!-- Залишив абсолютний URL, бо це зовнішнє джерело -->
                     <img id="modalImg" class="mx-auto" src="https://raw.githubusercontent.com/ByMykel/CSGO-API/efe25483a04a03414dea9c61d4b0e958a373cdfd/public/images/econ/default_generated/weapon_knife_gut_aa_fade_light.png" width="40%">
                     <h5 class="mx-auto"><span id="modalWeapon">Gut knife</span> | <span id="modalPaint">Fade</span></h5>
                     <div class="form-outline mx-auto mb-2">
@@ -205,7 +207,6 @@
 <script type="module" src="js/templates.js"></script>
 <script type="module" src="js/sideBtns.js"></script>
 
-
 <script>
     let lang = "<%- config.lang %>";
     let langObject = <%- JSON.stringify(lang) %>; 
@@ -234,76 +235,8 @@ function updateFloatText(value) {
     if (value >= 0 && value < 0.07) {
         text = langObject.modal.patternButtons[0].longName;
     } else if (value >= 0.07 && value < 0.15) {
-        text = langObject.modal.patternButtons[1].longName;
-    } else if (value >= 0.15 && value < 0.38) {
-        text = langObject.modal.patternButtons[2].longName;
-    } else if (value >= 0.38 && value < 0.45) {
-        text = langObject.modal.patternButtons[3].longName;
-    } else if (value >= 0.45 && value <= 1) {
-        text = langObject.modal.patternButtons[4].longName;
+        text = langObject
     }
-    document.getElementById('floatText').textContent = text;
 }
+
 </script>
-
-<script>
-    document.getElementById('floatSlider').oninput = function() {
-        document.getElementById('float').value = this.value;
-        updateFloatText(parseFloat(this.value));
-    }
-
-    document.getElementById('float').oninput = function() {
-        document.getElementById('floatSlider').value = this.value;
-        updateFloatText(parseFloat(this.value));
-    }
-</script>
-
-<% if (typeof knife != 'undefined') { %>
-    <script>    
-        selectedKnife = <%- JSON.stringify(knife) %>;
-    </script>
-<% } %>
-
-<% if (typeof skins != 'undefined') { %>
-    <script>    
-        let selectedSkins = <%- JSON.stringify(skins) %>;
-    </script>
-<% } %>
-
-<% if (typeof gloves != 'undefined') { %>
-    <script>
-        selectedGloves = <%- JSON.stringify(gloves) %>;
-    </script>
-<% } %>
-
-<% if (typeof agents != 'undefined') { %>
-    <script>
-        selectedAgents = <%- JSON.stringify(agents) %>;
-    </script>
-<% } %>
-
-<% if (typeof music != 'undefined') { %>
-    <script>
-        selectedMusic = <%- JSON.stringify(music) %>;
-    </script>
-<% } %>
-
-<% if (typeof user != 'undefined') { %>
-    <script>    
-        let user = <%- JSON.stringify(user) %>;
-    </script>
-<% } %>
-
-
-<script>
-    function setFloat(value) {
-        value = Math.round(value * 10000) / 10000; // Round to 4 decimal places
-        document.getElementById('floatSlider').value = value;
-        document.getElementById('float').value = value;
-        updateFloatText(value);
-    }
-</script>
-
-<script></script>
-
-</html>
