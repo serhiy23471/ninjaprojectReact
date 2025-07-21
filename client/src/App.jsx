@@ -3,8 +3,9 @@ import Nav from './components/Nav';
 import Hero from './components/Hero';
 import ServerStatus from './components/ServerStatus';
 import VipSection from './components/VipSection';
-import Rules from './components/Rules/Rules';
+import Rules from "./components/Rules/Rules";
 import CommentsSection from './components/CommentsSection';
+// import './scripts/react.js';
 
 function App() {
   const [message, setMessage] = useState('');
@@ -30,7 +31,7 @@ function App() {
   ];
 
   useEffect(() => {
-    fetch('https://ninjaproject.com.ua/api/hello')
+    fetch('http://localhost:5000/api/hello')
       .then(res => res.json())
       .then(data => setMessage(data.message))
       .catch(err => console.error(err));
@@ -44,8 +45,6 @@ function App() {
       <VipSection />
       <Rules />
       <CommentsSection />
-      {/* Можеш вивести message для перевірки API */}
-      {message && <p className="text-center mt-4 text-gray-500">{message}</p>}
     </div>
   );
 }

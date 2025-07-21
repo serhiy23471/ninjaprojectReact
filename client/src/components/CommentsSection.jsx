@@ -12,7 +12,7 @@ export default function CommentsSection() {
 
   useEffect(() => {
     axios
-      .get("https://ninjaproject.com.ua/api/user", { withCredentials: true })
+      .get("http://localhost:5000/api/user", { withCredentials: true })
       .then((res) => {
         if (res.data.steamid) setUser(res.data);
         else setUser(null);
@@ -37,7 +37,7 @@ export default function CommentsSection() {
 
     axios
       .post(
-        "https://ninjaproject.com.ua/api/comments",
+        "http://localhost:5000/api/comments",
         {
           text: commentText,
           rating,
@@ -92,7 +92,7 @@ export default function CommentsSection() {
             Авторизируйтесь, чтобы иметь возможность писать комментарии и читать все отзывы
           </p>
           <a
-            href="https://ninjaproject.com.ua/auth/steam"
+            href="http://localhost:5000/auth/steam"
             className="steam-btn text-white font-bold py-3 px-6 rounded-full inline-flex items-center mx-auto"
             style={{
               backgroundColor: "#1b2838",

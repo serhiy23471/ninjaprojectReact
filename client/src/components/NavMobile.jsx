@@ -51,9 +51,6 @@ export default function NavMobile({ user, onLogout, isOpen, onToggle }) {
         className="fixed top-16 left-0 w-full bg-black bg-opacity-95 p-4 z-40 pointer-events-auto"
       >
         <a href="#home" className="block text-white py-2 hover:text-red-500 text-center">Главная</a>
-        <a href="/skins/index.html" target="_blank" rel="noopener noreferrer">
-          <button className="btn">Скини</button>
-        </a>
         <a href="/application/application.php" className="block text-white py-2 hover:text-red-500 text-center">Подача заявок</a>
         <a href="#vip" className="block text-white py-2 hover:text-red-500 text-center">VIP</a>
         <a href="#rules" className="block text-white py-2 hover:text-red-500 text-center">Правила</a>
@@ -78,7 +75,7 @@ export default function NavMobile({ user, onLogout, isOpen, onToggle }) {
           </div>
         ) : (
           <a
-            href="https://ninjaproject.com.ua/auth/steam"
+            href="http://localhost:5000/auth/steam"
             className="block text-white font-bold py-2 px-4 rounded-full bg-red-600 hover:bg-red-700 text-center mt-4"
           >
             <i className="fab fa-steam mr-2"></i> Войти

@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -11,14 +9,12 @@ const passport = require('passport');
 const SteamStrategy = require('passport-steam').Strategy;
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 
-const STEAM_API_KEY = process.env.STEAM_API_KEY;
-const BASE_DOMAIN = process.env.BASE_DOMAIN;
+const STEAM_API_KEY = '704ED29BAE088CD245C606C2DA25074A';
 
-// CORS
 app.use(cors({
-  origin: BASE_DOMAIN,
+  origin: 'https://ninjaproject.com.ua', // Заміни на продакшен: 'https://ninjaproject.com.ua'
   credentials: true
 }));
 
@@ -37,10 +33,10 @@ app.get('/auth/steam/test', (req, res) => {
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((obj, done) => done(null, obj));
 
-// SteamStrategy
+// Налаштування SteamStrategy
 passport.use(new SteamStrategy({
-  returnURL: `${BASE_DOMAIN}:${PORT}/auth/steam/return`,
-  realm: `${BASE_DOMAIN}:${PORT}/`,
+  returnURL: 'https://ninjaproject.com.ua/auth/steam/return',
+  realm: 'https://ninjaproject.com.ua/',
   apiKey: STEAM_API_KEY
 }, (identifier, profile, done) => {
   process.nextTick(() => {
@@ -59,22 +55,22 @@ app.get('/auth/steam/return',
     req.session.steamid = req.user.id;
     req.session.username = req.user.displayName;
     req.session.avatar = req.user.photos[0]?.value || null;
-    res.redirect(BASE_DOMAIN); // Редірект на головну
+    res.redirect('https://ninjaproject.com.ua'); // Заміни на свій сайт
   }
 );
 
-// Logout
+// ВИПРАВЛЕНИЙ LOGOUT - Тепер POST замість GET
 app.post('/logout', (req, res, next) => {
   req.logout(err => {
     if (err) return next(err);
     req.session.destroy(() => {
-      res.clearCookie('connect.sid');
-      res.json({ success: true });
+      res.clearCookie('connect.sid'); // очищення cookie сесії
+      res.json({ success: true }); // повертаємо JSON без редіректу
     });
   });
 });
 
-// Отримання користувача
+// Інформація про користувача
 app.get('/api/user', (req, res) => {
   if (req.isAuthenticated()) {
     res.json({
@@ -93,7 +89,20 @@ app.get('/api/user', (req, res) => {
   }
 });
 
-// Запуск сервера
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server running on http://0.0.0.0:${PORT}`);
+const path = require('path');
+
+// EJS setup
+app.set('views', path.join(__dirname, 'weaponpaints/views'));
+app.set('view engine', 'ejs');
+
+// Статика (щоб скіни і картинки вантажились)
+app.use('/skins', express.static(path.join(__dirname, 'weaponpaints/public')));
+
+// Роутинг WeaponPaints
+const weaponRoutes = require('./weaponpaints/routes');
+app.use('/skins', weaponRoutes);
+
+
+app.listen(PORT, () => {
+  console.log(`Server running on https://ninjaproject.com.ua:${PORT}`);
 });
