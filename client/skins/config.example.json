@@ -8,8 +8,8 @@
         "database": "s5761_NinjaProject",
         "port": 3307
     },
-    "HOST": "localhost",
-    "PROTOCOL": "http",
+    "HOST": "0.0.0.0",
+    "PROTOCOL": "https",
     "PORT": 27275,
     "INTERNAL_HOST": "0.0.0.0",
     "STEAMAPIKEY": "704ED29BAE088CD245C606C2DA25074A",
