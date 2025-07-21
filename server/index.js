@@ -14,15 +14,16 @@ const STEAM_API_KEY = '704ED29BAE088CD245C606C2DA25074A';
 // Дозвіл довіряти проксі (nginx)
 app.set('trust proxy', 1);
 
-// Налаштування сесії
+// Налаштування сесії з proxy: true
 const sessionMiddleware = session({
   secret: 'A9d#kL!3@82xJfSh^7vPq#sD8Lm*T%zW',
   resave: false,
   saveUninitialized: false,
+  proxy: true,  // <-- Додано для роботи за проксі
   cookie: {
-    secure: true,       // Лише через HTTPS
+    secure: true,       // HTTPS обов’язково
     httpOnly: true,
-    sameSite: 'none',   // Для роботи кук при cross-site запитах
+    sameSite: 'none',   // Для кросс-сайт куків
     maxAge: 24 * 60 * 60 * 1000, // 1 день
   }
 });
