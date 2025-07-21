@@ -111,11 +111,6 @@ app.get('/api/user', (req, res) => {
   }
 });
 
-// Доданий тестовий маршрут для перевірки зв’язку з сервером
-app.get('/api/hello', (req, res) => {
-  res.json({ message: 'Hello from backend!' });
-});
-
 // Статика скінів
 app.use('/skins', express.static(path.join(__dirname, 'weaponpaints/public')));
 const weaponRoutes = require('./weaponpaints/routes');

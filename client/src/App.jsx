@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
 import ServerStatus from './components/ServerStatus';
 import VipSection from './components/VipSection';
 import Rules from "./components/Rules/Rules";
 import CommentsSection from './components/CommentsSection';
-// import './scripts/react.js';
 
 function App() {
-  const [message, setMessage] = useState('');
-
   // Приклад статичних серверів
   const servers = [
     {
@@ -29,16 +26,6 @@ function App() {
       ip: '',
     },
   ];
-
- useEffect(() => {
-  fetch('/api/hello', {
-    credentials: 'include' // щоб куки сесії передавались
-  })
-    .then(res => res.json())
-    .then(data => setMessage(data.message))
-    .catch(err => console.error(err));
-}, []);
-
 
   return (
     <div>
