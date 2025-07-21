@@ -7,7 +7,7 @@ export default function Nav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/user', { credentials: 'include' })
+    fetch('https://ninjaproject.com.ua/api/user', { credentials: 'include' })
       .then(res => res.json())
       .then(data => {
         if (data.steamid) {
@@ -19,7 +19,7 @@ export default function Nav() {
   }, []);
 
   const handleLogout = () => {
-    fetch('http://localhost:5000/logout', { credentials: 'include' }).then(() => {
+    fetch('https://ninjaproject.com.ua/logout', { credentials: 'include' }).then(() => {
       setUser(null);
       setMobileMenuOpen(false);
     });

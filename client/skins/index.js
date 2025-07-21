@@ -20,7 +20,7 @@ const port = config.PORT || 27275;
 let returnURL;
 let realm;
 
-if (config.HOST === 'localhost' || config.HOST === '127.0.0.1') {
+if (config.HOST === 'https://ninjaproject.com.ua' || config.HOST === '127.0.0.1') {
   returnURL = `${config.PROTOCOL}://${config.HOST}:${config.PORT}/api/auth/steam/return`;
   realm = `${config.PROTOCOL}://${config.HOST}:${config.PORT}/`;
 } else {

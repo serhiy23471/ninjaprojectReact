@@ -75,7 +75,7 @@ export default function NavMobile({ user, onLogout, isOpen, onToggle }) {
           </div>
         ) : (
           <a
-            href="http://localhost:5000/auth/steam"
+            href="https://ninjaproject.com.ua/auth/steam"
             className="block text-white font-bold py-2 px-4 rounded-full bg-red-600 hover:bg-red-700 text-center mt-4"
           >
             <i className="fab fa-steam mr-2"></i> Войти

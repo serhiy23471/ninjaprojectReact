@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function NavDesktop({ user }) {
   const handleLogout = () => {
-    fetch('http://localhost:5000/logout', {
+    fetch('https://ninjaproject.com.ua/logout', {
       method: 'POST',
       credentials: 'include',
     })
@@ -47,7 +47,7 @@ export default function NavDesktop({ user }) {
         </div>
       ) : (
         <a
-          href="http://localhost:5000/auth/steam"
+          href="https://ninjaproject.com.ua/auth/steam"
           className="steam-btn font-bold py-2 px-4 rounded-full inline-flex items-center no-underline transition-colors duration-300 transition-transform ease-in-out hover:-translate-y-0.5"
           style={{ color: '#fff', cursor: 'pointer' }}
           onMouseEnter={e => e.currentTarget.style.color = '#fff'}
