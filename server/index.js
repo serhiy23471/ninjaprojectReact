@@ -14,16 +14,16 @@ const STEAM_API_KEY = '704ED29BAE088CD245C606C2DA25074A';
 // Дозвіл довіряти проксі (nginx)
 app.set('trust proxy', 1);
 
-// Налаштування сесії з proxy: true
+// Налаштування сесії з проксі та cookie для HTTPS
 const sessionMiddleware = session({
   secret: 'A9d#kL!3@82xJfSh^7vPq#sD8Lm*T%zW',
   resave: false,
   saveUninitialized: false,
-  proxy: true,  // <-- Додано для роботи за проксі
+  proxy: true,          // Важливо для роботи сесій за nginx-проксі
   cookie: {
-    secure: true,       // HTTPS обов’язково
+    secure: true,       // Лише HTTPS (на проді)
     httpOnly: true,
-    sameSite: 'none',   // Для кросс-сайт куків
+    sameSite: 'none',   // Для крос-доменних кук
     maxAge: 24 * 60 * 60 * 1000, // 1 день
   }
 });
@@ -39,7 +39,7 @@ app.use(sessionMiddleware);
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Серіалізація / десеріалізація користувача в сесію
+// Серіалізація / десеріалізація користувача
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((obj, done) => done(null, obj));
 
@@ -49,7 +49,7 @@ passport.use(new SteamStrategy({
   realm: 'https://ninjaproject.com.ua/',
   apiKey: STEAM_API_KEY
 }, (identifier, profile, done) => {
-  console.log('Steam profile:', profile);
+  console.log('Steam profile received:', profile);
   process.nextTick(() => {
     profile.identifier = identifier;
     return done(null, profile);
@@ -59,10 +59,14 @@ passport.use(new SteamStrategy({
 // Маршрут авторизації
 app.get('/auth/steam', passport.authenticate('steam'));
 
-// Колбек після логіну
+// Колбек після логіну з логуванням
 app.get('/auth/steam/return',
   passport.authenticate('steam', { failureRedirect: '/' }),
   (req, res) => {
+    console.log('User after Steam auth callback:', req.user);
+    if (!req.user) {
+      return res.status(401).send('User not authenticated');
+    }
     req.session.steamid = req.user.id;
     req.session.username = req.user.displayName;
     req.session.avatar = req.user.photos[0]?.value || null;
@@ -89,6 +93,7 @@ app.post('/logout', (req, res, next) => {
 
 // Дані користувача
 app.get('/api/user', (req, res) => {
+  console.log('Session data:', req.session);
   if (req.isAuthenticated()) {
     res.json({
       steamid: req.session.steamid || null,
@@ -104,6 +109,11 @@ app.get('/api/user', (req, res) => {
       isAdmin: false
     });
   }
+});
+
+// Доданий тестовий маршрут для перевірки зв’язку з сервером
+app.get('/api/hello', (req, res) => {
+  res.json({ message: 'Hello from backend!' });
 });
 
 // Статика скінів

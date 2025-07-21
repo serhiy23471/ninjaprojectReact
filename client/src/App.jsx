@@ -30,12 +30,15 @@ function App() {
     },
   ];
 
-  useEffect(() => {
-    fetch('http://localhost:5000/api/hello')
-      .then(res => res.json())
-      .then(data => setMessage(data.message))
-      .catch(err => console.error(err));
-  }, []);
+ useEffect(() => {
+  fetch('/api/hello', {
+    credentials: 'include' // щоб куки сесії передавались
+  })
+    .then(res => res.json())
+    .then(data => setMessage(data.message))
+    .catch(err => console.error(err));
+}, []);
+
 
   return (
     <div>
