@@ -22,6 +22,10 @@ npm install axios
 
 
 	cd /var/www/ninjaprojectReact/client
+	cd /var/www/ninjaprojectReact/server
+	cd /var/www/ninjaprojectReact/client/skins
+		node index.js
+
 
 
 Оновлюєш код із GitHub:

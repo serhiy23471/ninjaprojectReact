@@ -1,0 +1,141 @@
+.comments-container {
+  background: #0f1626;
+  color: white;
+  padding: 2rem;
+  font-family: 'Arial', sans-serif;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Press Start 2P', cursive;
+  margin-bottom: 2rem;
+}
+
+.comment-form {
+  background: #1e253f;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.comment-form textarea {
+  width: 100%;
+  min-height: 100px;
+  background: #2c354f;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 1rem;
+  resize: none;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+.stars {
+  margin-top: 0.8rem;
+}
+
+.star {
+  cursor: pointer;
+  margin-right: 0.2rem;
+}
+
+.submit-btn {
+  background: #e84118;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.comment-box {
+  background: #1e253f;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.comment-rating {
+  margin: 0.5rem 0;
+}
+
+.comment-text {
+  white-space: pre-line;
+}
+
+.comment-actions {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.comment-actions button {
+  background: none;
+  border: none;
+  color: #e84118;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.reply-box {
+  background: #2c354f;
+  border-radius: 10px;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.8rem;
+}
+
+.reply-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin-badge {
+  background: #e84118;
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+  font-size: 0.7rem;
+  color: white;
+}
+
+.pagination {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.pagination button {
+  background: #2c354f;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  margin: 0 0.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background: #e84118;
+}

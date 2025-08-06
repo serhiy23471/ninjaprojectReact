@@ -1,0 +1,47 @@
+🚀 Запуск проєкту
+У 2-х терміналах:
+
+Фронтенд: 	cd client
+		npm run dev
+
+Бекенд:
+		cd server
+		node index.js
+відкрити в браузері http://localhost:5000/api/user
+
+
+npm install express cors body-parser express-session connect-pg-simple passport passport-steam pg dotenv
+npm install axios
+
+Кроки на сервері VPS:
+Підключаєшся по SSH до VPS:
+
+
+	ssh user@твій_vps_ip
+	Переходиш у папку свого проєкту:
+
+
+	cd /var/www/ninjaprojectReact/client
+
+
+Оновлюєш код із GitHub:
+
+
+	git pull origin main
+	(або master, якщо у тебе так називається основна гілка)
+
+
+
+Якщо є збірка, запускаєш її:
+
+	npm install     # якщо додались нові пакети
+	npm run build   # щоб оновити production збірку
+
+
+
+Змінити його назад якщо треба  185.5.254.6
+
+cd /var/www/WeaponPaints
+git pull
+
+
