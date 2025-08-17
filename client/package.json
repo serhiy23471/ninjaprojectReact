@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "date-fns": "^4.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-icons": "^5.5.0",
     "react-router-dom": "^7.6.3"
   },
   "devDependencies": {
@@ -28,5 +30,5 @@
     "tailwindcss": "^4.1.11",
     "vite": "^7.0.4"
   },
-  "proxy": "https://ninjaproject.com.ua"
+  "proxy": "http://localhost:5000"
 }

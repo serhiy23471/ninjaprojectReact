@@ -16,7 +16,7 @@ export default function Comment({ comment, user, onReply, onDelete, children }) 
             {comment.username}{" "}
             {isCommentAuthorAdmin && (
               <span className="text-sm text-red-500 font-semibold ml-2">
-                Адміністратор
+                Администратор
               </span>
             )}
           </p>
@@ -34,17 +34,17 @@ export default function Comment({ comment, user, onReply, onDelete, children }) 
             onClick={() => onReply(comment.id)}
             className="bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded"
           >
-            Відповісти
+            Ответить
           </button>
           <button
             onClick={() => {
-              if (window.confirm("Видалити цей коментар?")) {
+              if (window.confirm("Удалить этот комментарий?")) {
                 onDelete(comment.id);
               }
             }}
             className="bg-red-600 hover:bg-red-700 text-white py-1 px-3 rounded"
           >
-            Видалити
+            Удалить
           </button>
         </div>
       )}

@@ -1,7 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function ServerStatus({ servers }) {
   const [copiedIndexes, setCopiedIndexes] = useState([]);
+  const [onlineCount, setOnlineCount] = useState(null);
+  const maxPlayers = 24; // максимум гравців
+
+  useEffect(() => {
+    fetch('http://localhost:5000/api/stats')
+      .then(res => res.json())
+      .then(data => {
+        setOnlineCount(data.online);
+      })
+      .catch(() => setOnlineCount(null));
+  }, []);
 
   const handleCopy = (ip, index) => {
     const connectString = `connect ${ip}`;
@@ -41,8 +52,10 @@ export default function ServerStatus({ servers }) {
                 <div className="flex items-center space-x-4">
                   <div className="text-right">
                     <p className="text-sm text-gray-400">Игроков</p>
-                    <p className={`font-bold ${server.players === '-/-' ? 'text-gray-500' : 'text-white'}`}>
-                      {server.players}
+                    <p className={`font-bold ${idx === 0 && onlineCount === null ? 'text-gray-500' : 'text-white'}`}>
+                      {idx === 0 && onlineCount !== null
+                        ? `${onlineCount} / ${maxPlayers}`
+                        : server.players}
                     </p>
                   </div>
                   <div className="h-8 w-px bg-gray-600"></div>

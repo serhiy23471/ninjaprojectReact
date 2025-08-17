@@ -22,10 +22,6 @@ npm install axios
 
 
 	cd /var/www/ninjaprojectReact/client
-	cd /var/www/ninjaprojectReact/server
-	cd /var/www/ninjaprojectReact/client/skins
-		node index.js
-
 
 
 Оновлюєш код із GitHub:
@@ -44,5 +40,8 @@ npm install axios
 
 
 Змінити його назад якщо треба  185.5.254.6
+
+cd /var/www/WeaponPaints
+git pull
 
 

@@ -11,7 +11,7 @@ export default function CommentsList({ comments, user, onReply, onDelete }) {
   return (
     <div className="max-w-2xl mx-auto">
       {comments.length === 0 && (
-        <p className="text-center text-gray-400">Ще немає відгуків</p>
+        <p className="text-center text-gray-400">Еще нет отзывов</p>
       )}
 
       {rootComments.map((comment) => (

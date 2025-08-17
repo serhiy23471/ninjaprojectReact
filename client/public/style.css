@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
+
 body {
     font-family: "Nunito", sans-serif;
     display: block !important;
@@ -54,16 +55,19 @@ h2.ninja-text,
     0% {
         text-shadow: 0 0 10px rgba(255, 153, 0, 0.5);
     }
+
     100% {
         text-shadow: 0 0 20px rgba(255, 153, 0, 0.8), 0 0 30px rgba(255, 153, 0, 0.6);
     }
 }
 
 @keyframes textFloat {
+
     0%,
     100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-10px);
     }
@@ -96,6 +100,7 @@ h2.ninja-text,
         transform: translateY(-50%) scale(1);
         opacity: 0.7;
     }
+
     100% {
         transform: translateY(-50%) scale(1.3);
         opacity: 1;
@@ -148,6 +153,44 @@ h2.ninja-text,
     margin-top: 20px;
 }
 
+.width__svg {
+    display: flex;
+    gap: 5px;
+}
+
+.rig {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    margin: 0 auto;
+
+}
+
+.all-container {
+    width: 1396px !important;
+}
+
+.fill_blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    
+}
+
+.height__jump {
+    height: 112px;
+
+}
+
+.width-left-panel {
+    width: 430px;
+}
+
+.height-flex {
+    display: flex;
+    align-items: flex-end;
+}
 
 .rules-container {
     max-height: 0;
@@ -163,10 +206,12 @@ h2.ninja-text,
 .rules-container.active::-webkit-scrollbar {
     width: 8px;
 }
+
 .rules-container.active::-webkit-scrollbar-thumb {
     background: #ff0000;
     border-radius: 4px;
 }
+
 .rules-container.active::-webkit-scrollbar-track {
     background: #1a1a1a;
 }
@@ -175,6 +220,7 @@ h2.ninja-text,
 .fa-chevron-down {
     transition: transform 0.3s ease;
 }
+
 .rotate-180 {
     transform: rotate(180deg);
 }
@@ -250,6 +296,7 @@ h2.ninja-text,
     0% {
         transform: rotate(45deg) translate(-50%, -50%);
     }
+
     100% {
         transform: rotate(45deg) translate(50%, 50%);
     }
@@ -259,6 +306,7 @@ h2.ninja-text,
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -274,10 +322,12 @@ h2.ninja-text,
         transform: scale(0.95);
         box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
     }
+
     70% {
         transform: scale(1);
         box-shadow: 0 0 0 8px rgba(74, 222, 128, 0);
     }
+
     100% {
         transform: scale(0.95);
         box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
@@ -285,10 +335,12 @@ h2.ninja-text,
 }
 
 @keyframes ninjaJump {
+
     0%,
     100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-20px);
     }
@@ -303,9 +355,11 @@ h2.ninja-text,
         opacity: 0;
         transform: translateY(0) scale(0.5);
     }
+
     50% {
         opacity: 0.5;
     }
+
     100% {
         opacity: 0;
         transform: translateY(-50px) scale(1.5);
@@ -319,7 +373,7 @@ h2.ninja-text,
     left: 50%;
     width: 100px;
     height: 100px;
-    background: radial-gradient( circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
     border-radius: 50%;
     transform: translateX(-50%);
     animation: smoke 2s ease-out infinite;
@@ -342,41 +396,60 @@ h2.ninja-text,
     justify-content: center !important;
 }
 
+.fa-comment-slash:before {
+    content: "\f4b3";
+}
+
+.fa-steam:before {
+    content: "\f1b6";
+}
+
+.coment__bac {
+    background-color: rgb(31 41 55 / var(--tw-bg-opacity, 1));
+    border-radius: 0.5rem;
+    padding: 42px 18px;
+}
+
+
 /* Стилі для кастомного скролбару */
-        .vip-scroll-container::-webkit-scrollbar {
-            width: 6px;
-        }
-        .vip-scroll-container::-webkit-scrollbar-track {
-            background: #fef9c3;
-            border-radius: 3px;
-        }
-        .vip-scroll-container::-webkit-scrollbar-thumb {
-            background: #f59e0b;
-            border-radius: 3px;
-        }
-        
-        /* Для десктопів - скролл при наведенні */
-        @media (hover: hover) {
-            .vip-scroll-container {
-                overflow: hidden;
-            }
-            .vip-card:hover .vip-scroll-container {
-                overflow-y: auto;
-            }
-        }
-        
-        /* Для мобільних - постійний скролл */
-        @media (hover: none) {
-            .vip-scroll-container {
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-            .vip-scroll-container::-webkit-scrollbar {
-                width: 8px;
-                height: 8px;
-            }
-        }
-        
+.vip-scroll-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.vip-scroll-container::-webkit-scrollbar-track {
+    background: #fef9c3;
+    border-radius: 3px;
+}
+
+.vip-scroll-container::-webkit-scrollbar-thumb {
+    background: #f59e0b;
+    border-radius: 3px;
+}
+
+/* Для десктопів - скролл при наведенні */
+@media (hover: hover) {
+    .vip-scroll-container {
+        overflow: hidden;
+    }
+
+    .vip-card:hover .vip-scroll-container {
+        overflow-y: auto;
+    }
+}
+
+/* Для мобільних - постійний скролл */
+@media (hover: none) {
+    .vip-scroll-container {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .vip-scroll-container::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+}
+
 
 /* Виправлення для пагінації коментарів */
 
@@ -392,7 +465,7 @@ h2.ninja-text,
 }
 
 button:hover {
-    border-color: transparent !important; 
+    border-color: transparent !important;
 }
 
 button:focus,
@@ -400,55 +473,67 @@ button:focus-visible {
     outline: none !important;
 }
 
+.skins button {
+    background-color: transparent !important;
+    outline: none !important;
+    border-color: transparent !important;
+    padding: 0 !important;
+    width: 100%;
+}
+
+.game {
+    width: 100% !important;
+}
+
 .scrollbar {
-  /* Firefox */
-  scrollbar-width: thin;
-  scrollbar-color: #8f53ff transparent;
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: #8f53ff transparent;
 }
 
 /* Chrome / Edge / Safari */
 .scrollbar::-webkit-scrollbar {
-  width: 6px;
+    width: 6px;
 }
 
 .scrollbar::-webkit-scrollbar-track {
-  background: transparent;
+    background: transparent;
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
-  background-color: #8f53ff;
-  border-radius: 10px;
+    background-color: #8f53ff;
+    border-radius: 10px;
 }
 
 /* ❌ Приховуємо стрілки */
 .scrollbar::-webkit-scrollbar-button {
-  display: none;
-  width: 0;
-  height: 0;
+    display: none;
+    width: 0;
+    height: 0;
 }
 
 /* ❌ Приховуємо кут */
 .scrollbar::-webkit-scrollbar-corner {
-  background: transparent;
+    background: transparent;
 }
 
 
 .rules-container::-webkit-scrollbar {
-  width: 8px;
+    width: 8px;
 }
 
 .rules-container::-webkit-scrollbar-thumb {
-  background-color: rgb(255 0 0);
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+    background-color: rgb(255 0 0);
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
 .rules-container::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(255 0 0);
+    background-color: rgb(255 0 0);
 }
 
 .rules-container::-webkit-scrollbar-track {
-  background-color: #1f2937;
+    background-color: #1f2937;
 }
 
 
@@ -465,6 +550,29 @@ button:focus-visible {
     color: white;
 }
 
+.h2-title {
+    font-family: "Press Start 2P", cursive;
+    letter-spacing: 1px;
+    /* background-color: #0a0a0a; */
+    color: #fff;
+    overflow-x: hidden;
+    line-height: 1.3;
+    font-size: 34px !important;
+    margin-top: 60px !important;
+    margin-bottom: 60px !important;
+}
+
+.button_add {
+    color: rgb(239 68 68 / var(--tw-text-opacity, 1)) !important;
+}
+
+.admins__chek {
+    padding: 15px 21px;
+}
+
+.admins__margin {
+    margin-top: 30px;
+}
 
 /* Mobile menu styles */
 
@@ -512,6 +620,7 @@ button:focus-visible {
         padding-top: 3rem;
         padding-bottom: 3rem;
     }
+
     .ninja-text,
     h2.ninja-text,
     #home h2,
@@ -520,45 +629,56 @@ button:focus-visible {
         line-height: 2.5rem;
         padding: 0 1rem;
     }
+
     #vip h2 {
         font-size: 1.3rem;
         padding: 0 2rem;
     }
+
     #vip h2::before,
     #vip h2::after {
         font-size: 1.5rem;
     }
+
     .vip-cards {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
+
     .server-card {
         padding: 1rem;
     }
+
     .server-info {
         flex-direction: column;
         gap: 0.5rem;
     }
+
     .server-divider {
         display: none;
     }
+
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+
     .hero-buttons {
         flex-direction: column;
         gap: 1rem;
     }
+
     .logo-center span {
         font-size: 1rem;
     }
+
     .server-ip {
         font-size: 0.7rem;
     }
 }
 
 @media (min-width: 641px) and (max-width: 768px) {
+
     .ninja-text,
     h2.ninja-text,
     #home h2,
@@ -566,17 +686,28 @@ button:focus-visible {
         font-size: 2.5rem;
         line-height: 3rem;
     }
+
     .vip-cards {
         grid-template-columns: 1fr 1fr !important;
     }
+
     .vip-card:nth-child(3) {
         grid-column: span 2;
         max-width: 80%;
         margin: 0 auto;
     }
+
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+}
+
+@media (min-width: 1300px) {
+    .general_info {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
     }
 }
 
@@ -591,13 +722,16 @@ button:focus-visible {
         padding-left: 2rem;
         padding-right: 2rem;
     }
+
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
     /* Специфічні стилі для контактної інформації */
     .overflow-hidden {
         overflow: visible;
     }
+
     .break-all {
         word-break: break-all;
         overflow-wrap: break-word;
@@ -609,23 +743,28 @@ button:focus-visible {
         font-size: 16px;
         line-height: 1.5;
     }
+
     .bg-red-500 {
         margin: 0 -21px -60px 0;
     }
+
     p,
     li {
         font-size: 0.95rem;
     }
+
     .rules-container {
         max-height: none;
         overflow-y: visible;
     }
+
     .rules-toggle i {
         transition: transform 0.3s ease;
     }
 }
 
 @media (min-width: 769px) {
+
     .mobile-menu-button,
     .mobile-menu {
         display: none !important;

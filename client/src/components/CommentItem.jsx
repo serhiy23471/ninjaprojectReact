@@ -26,13 +26,13 @@ export default function CommentItem({ comment, currentUser, onDelete, onReply })
   const [submittingReply, setSubmittingReply] = useState(false);
 
   const handleDelete = useCallback(async () => {
-    if (!window.confirm('Ви дійсно хочете видалити цей коментар?')) return;
+    if (!window.confirm('Вы действительно хотите удалить этот комментарий?')) return;
     try {
-      const res = await fetch(`/api/comments/${comment.id}`, { method: 'DELETE' });
-      if (!res.ok) throw new Error('Помилка видалення');
+      const res = await fetch(`/api/reviews/${comment.id}`, { method: 'DELETE' });
+      if (!res.ok) throw new Error('Ошибка удаления');
       onDelete(comment.id);
     } catch (error) {
-      alert('Не вдалося видалити коментар');
+      alert('Не удалось удалить комментарий');
     }
   }, [comment.id, onDelete]);
 
@@ -41,18 +41,18 @@ export default function CommentItem({ comment, currentUser, onDelete, onReply })
     if (!replyText.trim()) return;
     setSubmittingReply(true);
     try {
-      const res = await fetch(`/api/comments/${comment.id}/reply`, {
+      const res = await fetch(`/api/reviews/${comment.id}/reply`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: replyText }),
       });
-      if (!res.ok) throw new Error('Помилка відправки відповіді');
+      if (!res.ok) throw new Error('Ошибка отправки ответа');
       const newReply = await res.json();
       onReply(comment.id, newReply);
       setReplyText('');
       setReplying(false);
     } catch (error) {
-      alert('Не вдалося відправити відповідь');
+      alert('Не удалось отправить ответ');
     } finally {
       setSubmittingReply(false);
     }
@@ -85,8 +85,8 @@ export default function CommentItem({ comment, currentUser, onDelete, onReply })
       <p className="mb-2 whitespace-pre-wrap">{comment.text}</p>
 
       {comment.reply?.text && (
-        <div className="bg-gray-700 p-3 rounded ml-14 mb-2" role="region" aria-label="Відповідь адміністрації">
-          <p className="italic text-gray-300">Відповідь адміністрації:</p>
+        <div className="bg-gray-700 p-3 rounded ml-14 mb-2" role="region" aria-label="Ответ администрации">
+          <p className="italic text-gray-300">Ответ администрации:</p>
           <p className="whitespace-pre-wrap">{comment.reply.text}</p>
         </div>
       )}
@@ -97,16 +97,16 @@ export default function CommentItem({ comment, currentUser, onDelete, onReply })
             onClick={() => setReplying(!replying)}
             className="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded text-sm"
             aria-pressed={replying}
-            aria-label={replying ? 'Відмінити відповідь' : 'Відповісти'}
+            aria-label={replying ? 'Отменить ответ' : 'Ответить'}
           >
-            {replying ? 'Відмінити' : 'Відповісти'}
+            {replying ? 'Отменить' : 'Ответить'}
           </button>
           <button
             onClick={handleDelete}
             className="bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-sm"
-            aria-label="Видалити коментар"
+            aria-label="Удалить комментарий"
           >
-            Видалити
+            Удалить
           </button>
         </div>
       )}
@@ -118,9 +118,9 @@ export default function CommentItem({ comment, currentUser, onDelete, onReply })
             rows="3"
             value={replyText}
             onChange={(e) => setReplyText(e.target.value)}
-            placeholder="Напишіть відповідь..."
+            placeholder="Напишите ответ..."
             disabled={submittingReply}
-            aria-label="Текст відповіді"
+            aria-label="Текст ответа"
           />
           <div className="flex justify-end mt-1">
             <button
@@ -128,7 +128,7 @@ export default function CommentItem({ comment, currentUser, onDelete, onReply })
               disabled={submittingReply || !replyText.trim()}
               className="bg-blue-600 hover:bg-blue-700 px-4 py-1 rounded text-white text-sm disabled:opacity-50"
             >
-              {submittingReply ? 'Відправка...' : 'Відправити'}
+              {submittingReply ? 'Отправка...' : 'Отправить'}
             </button>
           </div>
         </form>

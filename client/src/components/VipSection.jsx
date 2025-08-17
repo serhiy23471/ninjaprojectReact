@@ -57,7 +57,7 @@ export default function VipSection() {
                             buttonHoverColor="#6D28D9"         // 🟣 Темніший ховер
                             buttonTextColor="#FFFFFF"          // ⚪ Білий текст
                             features={[
-                                "Banny Hop, макс. скорость 450.",
+                                "Banny Hop, макс. скорость 450, кд 5 секунд.",
                                 "Выдача гранат(3) при начале раунда.",
                                 "+1000 каждый раунд.",
                                 'Tab Tag "[Shinobi+]".',
@@ -88,7 +88,7 @@ export default function VipSection() {
                         buttonHoverColor="#374151"         // 🔵 Темніший ховер
                         buttonTextColor="#FFFFFF"          // ⚪ Білий текст
                         features={[
-                            "Banny Hop, макс. скорость 550.",
+                            "Banny Hop, макс. скорость 550, кд 0 секунд.",
                             "Выдача гранат(4) при начале раунда.",
                             "+1500 каждый раунд.",
                             'Tab Tag "[Shadow]".',

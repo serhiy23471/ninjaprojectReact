@@ -16,7 +16,7 @@ export default function CommentForm({ user, onAdd }) {
     setSubmitting(true);
 
     try {
-      const response = await fetch('/api/comments', {
+      const response = await fetch('/api/reviews', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
